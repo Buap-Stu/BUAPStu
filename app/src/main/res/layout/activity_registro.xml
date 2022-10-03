@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/mensajeRegistro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Precione la imagen correspondiente al tipo de usuario que es usted."
+                        android:textColor="@color/foreground"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LLImaButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="top">
+                    <LinearLayout
+                        android:id="@+id/DriverContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/imageButtonDriver"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/driver"
+                            android:backgroundTint="@color/background"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp"
+                            android:text="Conductor"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/StudentContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/imageButtonStudent"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/students"
+                            android:backgroundTint="@color/background"/>
+                        <TextView
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp"
+                            android:text="Alumno o trabajador BUAP"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/fromContainerAlumno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Nombre Completo."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/ANombreCompleto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Nombre Completo"
+                            android:inputType="text"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Matricula."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/AMAtricula"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Matricula"
+                            android:inputType="text"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Correo."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/AEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Correo Institucional"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/background" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Contraseña."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/APassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Contraseña"
+                            android:inputType="textPassword"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fromContainerDriver"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Nombre Completo."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/DNombreCompleto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Nombre Completo"
+                            android:inputType="text"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Numero de Afiliación."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/DNumeroAfiliacion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Numero de afiliación"
+                            android:inputType="text"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Correo."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/DCorreo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Correo Institucional"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/background" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Contraseña."
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/DPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/foreground"
+                            android:ems="10"
+                            android:hint="Contraseña"
+                            android:inputType="textPassword"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LLContBTNResgidro"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="50dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/BTNRegistro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/green"
+                            android:text="Registro"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
