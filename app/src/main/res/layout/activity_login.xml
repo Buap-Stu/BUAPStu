@@ -40,6 +40,7 @@
                     android:textSize="20sp" />
 
                 <EditText
+                    android:id="@+id/correo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -60,7 +61,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/Password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -87,6 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
+                    android:onClick="iniciarSesion"
                     android:text="Iniciar sesión"
                     android:textColor="@color/background"
                     android:textSize="20sp" />
