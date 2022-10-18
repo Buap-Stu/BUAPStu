@@ -180,6 +180,16 @@
                             android:inputType="textPassword"
                             android:textColor="@color/background"
                             android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/BTNRegistro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/green"
+                            android:text="Registro"
+                            android:onClick="registrarAlumno"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -188,6 +198,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+
 
                         <TextView
                             android:layout_width="match_parent"
@@ -255,6 +266,7 @@
                             android:textColor="@color/foreground"
                             android:textSize="20sp" />
 
+
                         <EditText
                             android:id="@+id/DPassword"
                             android:layout_width="match_parent"
@@ -266,10 +278,21 @@
                             android:inputType="textPassword"
                             android:textColor="@color/background"
                             android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/btnRegistro2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/green"
+                            android:text="Registrar"
+                            android:onClick="registrarConductor"
+                            android:textColor="@color/background"
+                            android:textSize="20sp" />
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/LLContBTNResgidro"
+                        android:id="@+id/LLContBTNRegistro"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="50dp"
@@ -278,14 +301,8 @@
                         android:orientation="vertical"
                         android:visibility="gone">
 
-                        <Button
-                            android:id="@+id/BTNRegistro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/green"
-                            android:text="Registro"
-                            android:textColor="@color/background"
-                            android:textSize="20sp" />
+
+
                     </LinearLayout>
                 </LinearLayout>
 

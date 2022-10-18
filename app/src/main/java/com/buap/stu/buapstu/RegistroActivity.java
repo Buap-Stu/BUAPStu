@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -30,20 +31,27 @@ import java.util.Map;
 public class RegistroActivity extends AppCompatActivity {
 
     ImageButton conductor,students;
-    LinearLayout formContainerDriver,LLImaButtons,DriverContainer,StudentContainer,formContainerStuden,LLContBTNResgitro;
+    LinearLayout formContainerDriver,LLImaButtons,DriverContainer,StudentContainer,formContainerStuden,LLContBTNRegistro;
     TextView mensajeRegistro;
 
     private EditText correo, contrasena, nombre, matricula;
-    private Button btnRegistrarse;
+    private EditText correo2, contrasena2, nombre2, afiliacion;
+    private Button btnRegistrarse,btnRegistrarse2;
 
     private String name= "";
     private String mail= "";
     private String mat= "";
     private String password= "";
 
+    private String name2= "";
+    private String mail2= "";
+    private String af= "";
+    private String password2= "";
+
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +66,12 @@ public class RegistroActivity extends AppCompatActivity {
         matricula = findViewById(R.id.AMAtricula);
         btnRegistrarse =  findViewById(R.id.BTNRegistro);
 
+        correo2 = findViewById(R.id.DCorreo);
+        contrasena2 =findViewById(R.id.DPassword);
+        nombre2 = findViewById(R.id.DNombreCompleto);
+        afiliacion = findViewById(R.id.DNumeroAfiliacion);
+        btnRegistrarse2 =  findViewById(R.id.btnRegistro2);
+
 
         conductor=(ImageButton) findViewById(R.id.imageButtonDriver);
         students=(ImageButton) findViewById(R.id.imageButtonStudent);
@@ -67,7 +81,7 @@ public class RegistroActivity extends AppCompatActivity {
         StudentContainer = (LinearLayout) this.findViewById(R.id.StudentContainer);
         formContainerDriver = (LinearLayout) this.findViewById(R.id.fromContainerDriver);
         formContainerStuden = (LinearLayout) this.findViewById(R.id.fromContainerAlumno);
-        LLContBTNResgitro = (LinearLayout) this.findViewById(R.id.LLContBTNResgidro);
+        LLContBTNRegistro = (LinearLayout) this.findViewById(R.id.LLContBTNRegistro);
 
         mensajeRegistro = (TextView) this.findViewById(R.id.mensajeRegistro);
 
@@ -78,7 +92,8 @@ public class RegistroActivity extends AppCompatActivity {
                 formContainerDriver.setVisibility(View.VISIBLE);
                 LLImaButtons.setGravity(Gravity.CENTER);
                 StudentContainer.setVisibility(View.GONE);
-                LLContBTNResgitro.setVisibility(View.VISIBLE);
+                LLContBTNRegistro.setVisibility(View.VISIBLE);
+
 
             }
         });
@@ -90,7 +105,7 @@ public class RegistroActivity extends AppCompatActivity {
                 formContainerStuden.setVisibility(View.VISIBLE);
                 LLImaButtons.setGravity(Gravity.CENTER);
                 DriverContainer.setVisibility(View.GONE);
-                LLContBTNResgitro.setVisibility(View.VISIBLE);
+                LLContBTNRegistro.setVisibility(View.VISIBLE);
             }
         });
 
@@ -104,7 +119,7 @@ public class RegistroActivity extends AppCompatActivity {
 
                 if(!name.isEmpty() && !mail.isEmpty() && !password.isEmpty() && !mat.isEmpty()){
                     if(password.length()>=6){
-                        registrarUsuario();
+                        registrarAlumno();
                     }
                     else{
                         Toast.makeText(RegistroActivity.this, "El password debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
@@ -114,10 +129,29 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
 
+        btnRegistrarse2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                name2 = nombre2.getText().toString();
+                af = afiliacion.getText().toString();
+                mail2 = correo2.getText().toString();
+                password2 = contrasena2.getText().toString();
+
+                if(!name2.isEmpty() && !mail2.isEmpty() && !password2.isEmpty() && !af.isEmpty()){
+                    if(password2.length()>=6){
+                        registrarConductor();
+                    }
+                    else{
+                        Toast.makeText(RegistroActivity.this, "El password debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
     }
 
     //Metodo que nos hara registrarnos en la firebase
-    private void registrarUsuario(){
+    private void registrarAlumno(){
 
         mAuth.createUserWithEmailAndPassword(mail, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -130,7 +164,41 @@ public class RegistroActivity extends AppCompatActivity {
                     datosUsuario.put("Contraseña", password);
 
                     String id = mAuth.getCurrentUser().getUid();
-                    mDatabase.child("Usuarios").child(id).setValue(datosUsuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.child("Alumnos").child(id).setValue(datosUsuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task2) {
+                            if(task2.isSuccessful()){
+                                startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
+                                finish();
+                            }
+                            else{
+                                Toast.makeText(RegistroActivity.this, "No se pudieron crear los datos correctamente", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error al crear usuario", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    //Metodo que nos hara registrarnos en la firebase
+    private void registrarConductor(){
+
+        mAuth.createUserWithEmailAndPassword(mail2, password2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Map<String, Object> datosUsuario2 = new HashMap<>();
+                    datosUsuario2.put("Nombre", name2);
+                    datosUsuario2.put("Email", mail2);
+                    datosUsuario2.put("Numero de afiliacion", af);
+                    datosUsuario2.put("Contraseña", password2);
+
+                    String id = mAuth.getCurrentUser().getUid();
+                    mDatabase.child("Conductores").child(id).setValue(datosUsuario2).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()){
