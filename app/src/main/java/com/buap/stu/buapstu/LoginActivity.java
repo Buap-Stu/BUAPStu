@@ -38,6 +38,18 @@ public class LoginActivity extends AppCompatActivity {
         correo2 = findViewById(R.id.correo);
         contrasena = findViewById(R.id.Password);
 
+        ini_sesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mail = correo2.getText().toString();
+                password = contrasena.getText().toString();
+                if(!mail.isEmpty() && !password.isEmpty()){
+                    iniciarSesion();
+                }else{
+                    Toast.makeText(LoginActivity.this, "Introduzca usuario y contraseña", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
     public void onStart() {
         super.onStart();
@@ -47,10 +59,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Con este metodo podremos hacer la conexion entre el firebase y la aplicacion
-    public void iniciarSesion(View view){
+    public void iniciarSesion(){
 
-        mAuth.signInWithEmailAndPassword(correo2.getText().toString(), contrasena.getText().toString())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(mail, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -59,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
                             Intent intent = new Intent(LoginActivity.this,PrincipalActivity.class);
+                            Toast.makeText(LoginActivity.this, "Sesion iniciada con exito", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

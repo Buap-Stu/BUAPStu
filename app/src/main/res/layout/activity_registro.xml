@@ -45,6 +45,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="top">
+
+
                     <LinearLayout
                         android:id="@+id/DriverContainer"
                         android:layout_width="wrap_content"
@@ -139,7 +141,7 @@
                             android:background="@color/foreground"
                             android:ems="10"
                             android:hint="Matricula"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:textColor="@color/background"
                             android:textSize="20sp" />
 
@@ -236,7 +238,7 @@
                             android:background="@color/foreground"
                             android:ems="10"
                             android:hint="Numero de afiliación"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:textColor="@color/background"
                             android:textSize="20sp" />
 

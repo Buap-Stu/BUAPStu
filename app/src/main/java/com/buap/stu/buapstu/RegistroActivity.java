@@ -118,12 +118,25 @@ public class RegistroActivity extends AppCompatActivity {
                 password = contrasena.getText().toString();
 
                 if(!name.isEmpty() && !mail.isEmpty() && !password.isEmpty() && !mat.isEmpty()){
-                    if(password.length()>=6){
-                        registrarAlumno();
+                    if(name.length()>30 || name.length()<3){
+                        Toast.makeText(RegistroActivity.this, "Introduzca un nombre valido", Toast.LENGTH_SHORT).show();
+                    }else{
+                        if(mat.length()<9 || mat.length()>9){
+                            Toast.makeText(RegistroActivity.this, "Introduzca una matricula valida", Toast.LENGTH_SHORT).show();
+                        }else{
+                            if(!mail.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")){
+                                Toast.makeText(RegistroActivity.this, "Introduzca un correo valido", Toast.LENGTH_SHORT).show();
+                            }else{
+                                if(password.length()<6){
+                                    Toast.makeText(RegistroActivity.this, "La contraseña debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    registrarAlumno();
+                                }
+                            }
+                        }
                     }
-                    else{
-                        Toast.makeText(RegistroActivity.this, "El password debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
-                    }
+                }else{
+                    Toast.makeText(RegistroActivity.this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -138,12 +151,25 @@ public class RegistroActivity extends AppCompatActivity {
                 password2 = contrasena2.getText().toString();
 
                 if(!name2.isEmpty() && !mail2.isEmpty() && !password2.isEmpty() && !af.isEmpty()){
-                    if(password2.length()>=6){
-                        registrarConductor();
+                    if(name2.length()>30 || name2.length()<3){
+                        Toast.makeText(RegistroActivity.this, "Introduzca un nombre valido", Toast.LENGTH_SHORT).show();
+                    }else{
+                        if(af.length()<9 || af.length()>9){
+                            Toast.makeText(RegistroActivity.this, "Introduzca un numero de afiliacion valido", Toast.LENGTH_SHORT).show();
+                        }else{
+                            if(!mail2.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")){
+                                Toast.makeText(RegistroActivity.this, "Introduzca un correo valido", Toast.LENGTH_SHORT).show();
+                            }else{
+                                if(password2.length()<6){
+                                    Toast.makeText(RegistroActivity.this, "La contraseña debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    registrarConductor();
+                                }
+                            }
+                        }
                     }
-                    else{
-                        Toast.makeText(RegistroActivity.this, "El password debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
-                    }
+                }else{
+                    Toast.makeText(RegistroActivity.this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -169,6 +195,7 @@ public class RegistroActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()){
                                 startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
+                                Toast.makeText(RegistroActivity.this, "Usuario alumno creado con exito", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                             else{
@@ -203,6 +230,7 @@ public class RegistroActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()){
                                 startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
+                                Toast.makeText(RegistroActivity.this, "Usuario conductor creado con exito", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                             else{
