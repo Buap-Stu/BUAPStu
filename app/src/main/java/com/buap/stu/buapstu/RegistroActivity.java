@@ -47,6 +47,8 @@ public class RegistroActivity extends AppCompatActivity {
     private String mail2= "";
     private String af= "";
     private String password2= "";
+    private String tipoAlumno= "Alumno";
+    private String tipoConductor= "Conductor";
 
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
@@ -188,6 +190,7 @@ public class RegistroActivity extends AppCompatActivity {
                     datosUsuario.put("Email", mail);
                     datosUsuario.put("Matricula", mat);
                     datosUsuario.put("Contraseña", password);
+                    datosUsuario.put("Tipo de usuario", tipoAlumno);
 
                     String id = mAuth.getCurrentUser().getUid();
                     mDatabase.child("Alumnos").child(id).setValue(datosUsuario).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -223,6 +226,7 @@ public class RegistroActivity extends AppCompatActivity {
                     datosUsuario2.put("Email", mail2);
                     datosUsuario2.put("Numero de afiliacion", af);
                     datosUsuario2.put("Contraseña", password2);
+                    datosUsuario2.put("Tipo de Usuario", tipoConductor);
 
                     String id = mAuth.getCurrentUser().getUid();
                     mDatabase.child("Conductores").child(id).setValue(datosUsuario2).addOnCompleteListener(new OnCompleteListener<Void>() {
