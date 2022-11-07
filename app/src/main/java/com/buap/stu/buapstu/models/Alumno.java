@@ -2,12 +2,14 @@ package com.buap.stu.buapstu.models;
 
 import androidx.annotation.NonNull;
 
-public class conductor {
+import java.io.Serializable;
 
-    public String uid, telefono, nombre_completo, correo, numero_afiliacion, contrasena;
+public class Alumno implements Serializable {
+    public String uid, telefono, nombre_completo, correo_institucional, matricula, contrasena,type;
+    public Integer creditos;
     public Boolean estado;
-    public conductor(){
 
+    public Alumno() {
     }
 
     public String getUid() {
@@ -34,20 +36,20 @@ public class conductor {
         this.nombre_completo = nombre_completo;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getCorreo_institucional() {
+        return correo_institucional;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCorreo_institucional(String correo_institucional) {
+        this.correo_institucional = correo_institucional;
     }
 
-    public String getNumero_afiliacion() {
-        return numero_afiliacion;
+    public String getMatricula() {
+        return matricula;
     }
 
-    public void setNumero_afiliacion(String numero_afiliacion) {
-        this.numero_afiliacion = numero_afiliacion;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getContrasena() {
@@ -56,6 +58,14 @@ public class conductor {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public Integer getCreditos() {
+        return creditos;
+    }
+
+    public void setCreditos(Integer creditos) {
+        this.creditos = creditos;
     }
 
     public Boolean getEstado() {

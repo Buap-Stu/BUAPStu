@@ -6,15 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".PrincipalActivity">
 
-    <Button
-        android:id="@+id/CerrarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cerrar Sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.983"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/foreground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textCreditos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/background"
+                    android:textSize="40sp"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/addCredit"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@color/currentLine"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profits" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="50dp"
+                    android:text="Generar boleto QR"
+                    android:textColor="@color/background"
+                    app:icon="@drawable/ic_baseline_qr_code_2_24"
+                    app:iconGravity="textEnd"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/background" />
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/CerrarSesion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/red"
+                    android:text="Cerrar Sesion"
+                    android:textColor="@color/foreground"
+                    app:icon="@drawable/ic_baseline_logout_24"
+                    app:iconGravity="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

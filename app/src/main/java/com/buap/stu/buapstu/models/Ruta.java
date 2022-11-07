@@ -1,10 +1,10 @@
 package com.buap.stu.buapstu.models;
 
-public class ruta {
+public class Ruta {
     public  String punto_inicial,punto_final;
     public String[] paradas_autorizadas,horaio_entras,horario_salidas;
 
-    public ruta() {
+    public Ruta() {
     }
 
     public String getPunto_inicial() {

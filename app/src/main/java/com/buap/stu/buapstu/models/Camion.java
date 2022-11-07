@@ -1,12 +1,12 @@
 package com.buap.stu.buapstu.models;
 
-public class camion {
+public class Camion {
     public String matricula;
     public Integer numero_maximo_asientos,numero_asientos_disponibles;
     public String state;
     public Boolean[][] asientos_disponibles;
 
-    public camion() {
+    public Camion() {
     }
 
     public String getMatricula() {

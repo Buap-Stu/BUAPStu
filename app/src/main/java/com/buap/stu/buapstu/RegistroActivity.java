@@ -120,7 +120,7 @@ public class RegistroActivity extends AppCompatActivity {
                 password = contrasena.getText().toString();
 
                 if(!name.isEmpty() && !mail.isEmpty() && !password.isEmpty() && !mat.isEmpty()){
-                    if(name.length()>30 || name.length()<3){
+                    if(name.length()>100 || name.length()<3){
                         Toast.makeText(RegistroActivity.this, "Introduzca un nombre valido", Toast.LENGTH_SHORT).show();
                     }else{
                         if(mat.length()<9 || mat.length()>9){
@@ -186,11 +186,14 @@ public class RegistroActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Map<String, Object> datosUsuario = new HashMap<>();
-                    datosUsuario.put("Nombre", name);
-                    datosUsuario.put("Email", mail);
-                    datosUsuario.put("Matricula", mat);
-                    datosUsuario.put("Contraseña", password);
-                    datosUsuario.put("Tipo de usuario", tipoAlumno);
+                    datosUsuario.put("nombre_completo", name);
+                    datosUsuario.put("correo_institucional", mail);
+                    datosUsuario.put("matricula", mat);
+                    datosUsuario.put("contrasena", password);
+                    datosUsuario.put("type", tipoAlumno);
+                    datosUsuario.put("estado", true);
+                    datosUsuario.put("telefono", null);
+                    datosUsuario.put("creditos", 0.0);
 
                     String id = mAuth.getCurrentUser().getUid();
                     mDatabase.child("Alumnos").child(id).setValue(datosUsuario).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -222,11 +225,12 @@ public class RegistroActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Map<String, Object> datosUsuario2 = new HashMap<>();
-                    datosUsuario2.put("Nombre", name2);
-                    datosUsuario2.put("Email", mail2);
-                    datosUsuario2.put("Numero de afiliacion", af);
-                    datosUsuario2.put("Contraseña", password2);
-                    datosUsuario2.put("Tipo de Usuario", tipoConductor);
+                    datosUsuario2.put("nombre", name2);
+                    datosUsuario2.put("correo", mail2);
+                    datosUsuario2.put("numero_afiliacion", af);
+                    datosUsuario2.put("contrasena", password2);
+                    datosUsuario2.put("type", tipoConductor);
+                    datosUsuario2.put("estado", true);
 
                     String id = mAuth.getCurrentUser().getUid();
                     mDatabase.child("Conductores").child(id).setValue(datosUsuario2).addOnCompleteListener(new OnCompleteListener<Void>() {

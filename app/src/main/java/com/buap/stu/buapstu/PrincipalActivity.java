@@ -5,29 +5,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.buap.stu.buapstu.models.Alumno;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class PrincipalActivity extends AppCompatActivity {
     Button LogOut;
+    ImageButton addCreditos;
+    TextView TextCreditos;
     private FirebaseAuth mAuth;
     private FirebaseUser User;
+    DatabaseReference mDatabase;
+    Alumno usuario;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         setContentView(R.layout.activity_principal);
+
+        Bundle parametros = this.getIntent().getExtras();
+        usuario = (Alumno) parametros.getSerializable("usuario");
+        TextCreditos = (TextView) findViewById(R.id.textCreditos);
+        mostrarCreditos();
+
+        addCreditos = (ImageButton) findViewById(R.id.addCredit);
 
         LogOut = (Button) findViewById(R.id.CerrarSesion);
         mAuth = FirebaseAuth.getInstance();
         User = mAuth.getCurrentUser();
+
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,21 +59,18 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case (R.id.addCredit):{
-                break;
+        addCreditos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usuario.setCreditos(usuario.getCreditos()+10);
+                mDatabase.child("Alumnos").child(usuario.getUid()).setValue(usuario);
+                mostrarCreditos();
             }
-        }
-        return true;
+        });
+    }
+
+    private void mostrarCreditos() {
+        TextCreditos.setText("Saldo: "+String.valueOf(usuario.getCreditos()+"    "));
     }
 }
