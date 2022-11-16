@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 public class Conductor implements Serializable {
 
-    public String uid, telefono, nombre_completo, correo, numero_afiliacion, contrasena;
+    public String uid, telefono, nombre_completo, correo, numero_afiliacion, contrasena, type;
     public Boolean estado;
     public Conductor(){
 

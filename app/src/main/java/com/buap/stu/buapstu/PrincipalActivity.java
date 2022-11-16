@@ -64,7 +64,7 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 usuario.setCreditos(usuario.getCreditos()+10);
-                mDatabase.child("Alumnos").child(usuario.getUid()).setValue(usuario);
+                mDatabase.child("Usuarios").child(usuario.getUid()).setValue(usuario);
                 mostrarCreditos();
             }
         });

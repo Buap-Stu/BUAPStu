@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "168991381496",
+    "firebase_url": "https://alumnos-1a662-default-rtdb.firebaseio.com",
+    "project_id": "alumnos-1a662",
+    "storage_bucket": "alumnos-1a662.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168991381496:android:9e5fa3d048ef3e3345e80d",
+        "android_client_info": {
+          "package_name": "com.buap.stu.buapstu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168991381496-mrsu04ji082itbu7pr2efkct2lntlshi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5J3lJ-nNjM8ajt62PpoQjFOLZpawlsRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168991381496-mrsu04ji082itbu7pr2efkct2lntlshi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168991381496:android:28b41efbe8e3d5d345e80d",
+        "android_client_info": {
+          "package_name": "com.example.buapstu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168991381496-mrsu04ji082itbu7pr2efkct2lntlshi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5J3lJ-nNjM8ajt62PpoQjFOLZpawlsRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168991381496-mrsu04ji082itbu7pr2efkct2lntlshi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

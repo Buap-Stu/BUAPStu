@@ -196,7 +196,7 @@ public class RegistroActivity extends AppCompatActivity {
                     datosUsuario.put("creditos", 0.0);
 
                     String id = mAuth.getCurrentUser().getUid();
-                    mDatabase.child("Alumnos").child(id).setValue(datosUsuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.child("Usuarios").child(id).setValue(datosUsuario).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()){
@@ -233,7 +233,7 @@ public class RegistroActivity extends AppCompatActivity {
                     datosUsuario2.put("estado", true);
 
                     String id = mAuth.getCurrentUser().getUid();
-                    mDatabase.child("Conductores").child(id).setValue(datosUsuario2).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.child("Usuarios").child(id).setValue(datosUsuario2).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()){

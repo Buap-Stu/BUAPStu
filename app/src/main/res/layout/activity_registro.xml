@@ -43,50 +43,55 @@
                     android:id="@+id/LLImaButtons"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="top">
+                    android:gravity="top"
+                    android:orientation="horizontal">
 
 
                     <LinearLayout
                         android:id="@+id/DriverContainer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
+
                         <ImageButton
                             android:id="@+id/imageButtonDriver"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
+                            android:backgroundTint="@color/background"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/driver"
-                            android:backgroundTint="@color/background"/>
+                            app:srcCompat="@drawable/driver" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Conductor"
                             android:textColor="@color/foreground"
-                            android:textSize="20sp"
-                            android:text="Conductor"/>
+                            android:textSize="20sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/StudentContainer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
+
                         <ImageButton
                             android:id="@+id/imageButtonStudent"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
+                            android:backgroundTint="@color/background"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/students"
-                            android:backgroundTint="@color/background"/>
+                            app:srcCompat="@drawable/students" />
+
                         <TextView
-                            android:textAlignment="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Alumno o trabajador BUAP"
+                            android:textAlignment="center"
                             android:textColor="@color/foreground"
-                            android:textSize="20sp"
-                            android:text="Alumno o trabajador BUAP"/>
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -188,8 +193,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/green"
-                            android:text="Registro"
                             android:onClick="registrarAlumno"
+                            android:text="Registro"
                             android:textColor="@color/background"
                             android:textSize="20sp" />
                     </LinearLayout>
@@ -286,8 +291,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/green"
-                            android:text="Registrar"
                             android:onClick="registrarConductor"
+                            android:text="Registrar"
                             android:textColor="@color/background"
                             android:textSize="20sp" />
 
@@ -302,7 +307,6 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:visibility="gone">
-
 
 
                     </LinearLayout>

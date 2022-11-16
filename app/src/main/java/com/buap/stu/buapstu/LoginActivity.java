@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
     String mail = "";
     String password = "";
-
+    String tipo= "";
     /*private void goToPrincipal() {
         Intent intent = new Intent(LoginActivity.this,PrincipalActivity.class);
         startActivity(intent);
@@ -79,10 +79,11 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
+
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
-                            mDatabase.child("Alumnos").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                            mDatabase.child("Usuarios").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                                     if (!task.isSuccessful()) {
@@ -100,17 +101,28 @@ public class LoginActivity extends AppCompatActivity {
                                             intent.putExtras(extras);
                                             startActivity(intent);
                                         }
-                                        else{
-                                            Conductor conductor = task.getResult().getValue(Conductor.class);
-                                            conductor.setUid(user.getUid());
-                                            extras.putSerializable("conductor",conductor);
-                                            Intent intent = new Intent(LoginActivity.this,ConductorActivity.class);
-                                            intent.putExtras(extras);
-                                            startActivity(intent);
+                                        else if(Objects.equals(usuario.type, "Conductor")){
+
                                         }
                                     }
                                 }
                             });
+
+                            mDatabase.child("Usuarios").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                    Bundle extras = new Bundle();
+                                    Conductor usuario = task.getResult().getValue(Conductor.class);
+                                    if (Objects.equals(usuario.type, "Conductor")){
+                                        usuario.setUid(user.getUid());
+                                        extras.putSerializable("usuario",usuario);
+                                        Intent intent = new Intent(LoginActivity.this,ConductorActivity.class);
+                                        intent.putExtras(extras);
+                                        startActivity(intent);
+                                    }
+                                }
+                            });
+
                             //Toast.makeText(LoginActivity.this, "Sesion iniciada con exito", Toast.LENGTH_LONG).show();
 
                         } else {
