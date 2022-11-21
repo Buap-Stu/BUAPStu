@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ini_sesion = (Button) findViewById(R.id.ini_sesion);
+        ini_sesion = (Button) findViewById(R.id.fecha);
         mAuth = FirebaseAuth.getInstance();
         correo2 = findViewById(R.id.correo);
         contrasena = findViewById(R.id.Password);

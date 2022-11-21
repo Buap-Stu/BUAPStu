@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReservaActivity"
+    android:background="@color/background">
+
+
+    <Button
+        android:id="@+id/hora"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/green"
+        android:onClick="hora"
+        android:text="Hora"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/fecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/creditos"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:onClick="creditos"
+        android:text="Creditos"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/viaje"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.792"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/ruta"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/green"
+        android:onClick="ruta"
+        android:text="Ruta"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/hora"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/fecha"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/green"
+        android:onClick="iniciarSesion"
+        android:text="Fecha"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/Reservar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/Reservar"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="112dp"
+        android:backgroundTint="@color/green"
+        android:onClick="reservar"
+        android:text="Reservar"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/viaje"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/green"
+        android:onClick="viaje"
+        android:text="Viaje"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/ruta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>
