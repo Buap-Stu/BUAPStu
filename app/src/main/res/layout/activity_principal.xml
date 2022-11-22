@@ -50,12 +50,12 @@
                 android:layout_marginBottom="30dp">
 
                 <Button
+                    android:id="@+id/reservaPasaje"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="50dp"
-                    android:text="Generar boleto QR"
+                    android:text="Reservar Pasaje"
                     android:textColor="@color/background"
-                    app:icon="@drawable/ic_baseline_qr_code_2_24"
                     app:iconGravity="textEnd"
                     app:iconSize="40dp"
                     app:iconTint="@color/background" />

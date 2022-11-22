@@ -7,101 +7,113 @@
     tools:context=".ReservaActivity"
     android:background="@color/background">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-366dp">
 
-    <Button
-        android:id="@+id/hora"
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="@color/green"
-        android:onClick="hora"
-        android:text="Hora"
-        android:textColor="@color/background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/fecha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/creditos"
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/green"
-        android:onClick="creditos"
-        android:text="Creditos"
-        android:textColor="@color/background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/viaje"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/RCredits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green"/>
 
-    <Button
-        android:id="@+id/ruta"
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="@color/green"
-        android:onClick="ruta"
-        android:text="Ruta"
-        android:textColor="@color/background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/hora"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/intRuta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/foreground"
+                android:text="precione sobre su ruta correspondiente"
+                android:layout_marginBottom="10dp"/>
 
-    <Button
-        android:id="@+id/fecha"
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="@color/green"
-        android:onClick="iniciarSesion"
-        android:text="Fecha"
-        android:textColor="@color/background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/Reservar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/RutaElegida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/foreground"/>
+            <ListView
+                android:id="@+id/ListViewRutas"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/foreground"
+                android:foregroundTint="@color/background" />
 
-    <Button
-        android:id="@+id/Reservar"
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
-        android:backgroundTint="@color/green"
-        android:onClick="reservar"
-        android:text="Reservar"
-        android:textColor="@color/background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+            <View
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/foreground"/>
 
-    <Button
-        android:id="@+id/viaje"
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="@color/green"
-        android:onClick="viaje"
-        android:text="Viaje"
-        android:textColor="@color/background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/ruta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/intHorario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/foreground"
+                android:text="precione sobre su horario correspondiente"
+                android:layout_marginBottom="10dp"/>
+
+            <ListView
+                android:id="@+id/ListViewHoario"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/foreground"
+                android:foregroundTint="@color/background"/>
+            <TextView
+                android:id="@+id/HorarioElegido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/foreground"/>
+            <View
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/foreground"/>
+
+            <TextView
+                android:id="@+id/Fecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/foreground"/>
+            <Button
+                android:visibility="gone"
+                android:id="@+id/GetFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selecione la Fecha"
+                android:backgroundTint="@color/green"
+                android:textColor="@color/background"
+                />
+            <TextView
+                android:id="@+id/textCosto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Costo: $4.00"
+                android:textColor="@color/foreground"
+                android:visibility="gone"/>
+            <View
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="@color/foreground"/>
+
+            <Button
+                android:id="@+id/realizarCompra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprar"
+                android:textColor="@color/background"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

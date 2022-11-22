@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class PrincipalActivity extends AppCompatActivity {
-    Button LogOut;
+    Button LogOut, reservaPasaje;
     ImageButton addCreditos;
     TextView TextCreditos;
     private FirebaseAuth mAuth;
@@ -48,7 +48,18 @@ public class PrincipalActivity extends AppCompatActivity {
 
         LogOut = (Button) findViewById(R.id.CerrarSesion);
         mAuth = FirebaseAuth.getInstance();
+        reservaPasaje = (Button) findViewById(R.id.reservaPasaje);
+
         User = mAuth.getCurrentUser();
+
+        reservaPasaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PrincipalActivity.this, ReservaActivity.class);
+                intent.putExtras(parametros);
+                startActivity(intent);
+            }
+        });
 
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
