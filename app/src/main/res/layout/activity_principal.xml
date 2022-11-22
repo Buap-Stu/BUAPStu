@@ -51,7 +51,7 @@
 
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:height="50dp"
                     android:text="Generar boleto QR"
                     android:textColor="@color/background"
@@ -59,6 +59,8 @@
                     app:iconGravity="textEnd"
                     app:iconSize="40dp"
                     app:iconTint="@color/background" />
+
+
             </LinearLayout>
 
 
@@ -70,7 +72,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp">
+                android:layout_height="150dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/TC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="30dp"
+                    android:text="Transferir"
+                    android:textColor="@color/background" />
 
                 <Button
                     android:id="@+id/CerrarSesion"

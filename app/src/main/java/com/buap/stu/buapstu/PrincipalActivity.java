@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class PrincipalActivity extends AppCompatActivity {
-    Button LogOut;
+    Button LogOut, transferir;
     ImageButton addCreditos;
     TextView TextCreditos;
     private FirebaseAuth mAuth;
@@ -47,6 +47,7 @@ public class PrincipalActivity extends AppCompatActivity {
         addCreditos = (ImageButton) findViewById(R.id.addCredit);
 
         LogOut = (Button) findViewById(R.id.CerrarSesion);
+        transferir = (Button) findViewById(R.id.TC);
         mAuth = FirebaseAuth.getInstance();
         User = mAuth.getCurrentUser();
 
@@ -66,6 +67,14 @@ public class PrincipalActivity extends AppCompatActivity {
                 usuario.setCreditos(usuario.getCreditos()+10);
                 mDatabase.child("Usuarios").child(usuario.getUid()).setValue(usuario);
                 mostrarCreditos();
+            }
+        });
+
+        transferir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PrincipalActivity.this,TransferirActivity.class);
+                startActivity(intent);
             }
         });
     }
