@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TransferirActivity"
+    android:background="@color/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="507dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/BuscarMatricula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                <TextView
+                    android:id="@+id/matricula"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:text="Matricula"
+                    android:textColor="@color/foreground"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/Matricula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:scaleType="centerCrop" />
+
+                <Button
+                    android:id="@+id/buscar"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buscar" />
+            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/transferir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/TransferirCreditos2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ListView
+                            android:layout_width="300dp"
+                            android:layout_height="200dp"
+                            android:background="@color/foreground"></ListView>
+
+                        <TextView
+                            android:id="@+id/cantidad"
+                            android:layout_width="216dp"
+                            android:layout_height="wrap_content"
+                            android:text="Cantidad de Creditos"
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/CantidadCreditos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:scaleType="centerCrop" />
+
+                        <Button
+                            android:id="@+id/TransferirCreditos"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Transferir" />
+                        <Button
+                            android:id="@+id/Cancelar"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Cancelar"
+                            android:backgroundTint="@color/red"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

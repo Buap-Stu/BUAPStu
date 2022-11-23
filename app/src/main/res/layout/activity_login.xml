@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,7 +29,6 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -40,7 +38,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/correo"
+                    android:id="@+id/textEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -61,7 +59,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/Password"
+                    android:id="@+id/textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -84,14 +82,20 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/fecha"
+                    android:id="@+id/buttonLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
-                    android:onClick="iniciarSesion"
                     android:text="Iniciar sesión"
                     android:textColor="@color/background"
                     android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressLogin"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:visibility="gone"
+                    />
             </LinearLayout>
         </LinearLayout>
 

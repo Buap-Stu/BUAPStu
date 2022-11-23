@@ -1,16 +1,20 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
     namespace 'com.buap.stu.buapstu'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.buap.stu.buapstu"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -40,11 +44,45 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.3.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'com.google.firebase:firebase-firestore:24.0.2'
-    implementation 'com.google.firebase:firebase-database:20.1.0'
-    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'androidx.core:core-ktx:+'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+    // * data store
+    implementation("androidx.datastore:datastore:1.0.0")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+
+    // * save state
+    implementation "androidx.savedstate:savedstate-ktx:1.2.0"
+
+    // * Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.orhanobut:logger:2.2.0'
+
+    // * coil
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
+    implementation 'com.google.firebase:firebase-firestore:24.4.1'
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+
+    // *lottie compose
+    implementation "com.airbnb.android:lottie-compose:5.1.1"
+
+    // * hilt
+    def daggerHiltVersion = '2.42'
+    implementation "com.google.dagger:hilt-android:$daggerHiltVersion"
+    kapt "com.google.dagger:hilt-compiler:$daggerHiltVersion"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    // ? hilt test
+    testImplementation "com.google.dagger:hilt-android-testing:$daggerHiltVersion"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$daggerHiltVersion"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$daggerHiltVersion"
+
+    implementation "com.google.android.material:material:1.7.0"
 }

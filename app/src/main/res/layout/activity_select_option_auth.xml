@@ -48,7 +48,7 @@
             android:layout_margin="50dp">
 
             <Button
-                android:id="@+id/iniciar_sesion"
+                android:id="@+id/button_init_sesion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/green"
@@ -57,7 +57,7 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/crear_cuenta"
+                android:id="@+id/button_create_account"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/currentLine"

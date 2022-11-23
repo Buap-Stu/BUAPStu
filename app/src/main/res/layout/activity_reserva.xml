@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,10 +20,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/RCredits"
+                android:textSize="20sp"
+                android:id="@+id/text_credits_avariable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/green"/>
+                android:textColor="@color/green"
+                android:textAlignment="textEnd"
+                />
 
             <TextView
                 android:id="@+id/intRuta"
@@ -35,16 +37,31 @@
                 android:layout_marginBottom="10dp"/>
 
             <TextView
+                android:textSize="18sp"
                 android:id="@+id/RutaElegida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/foreground"/>
-            <ListView
-                android:id="@+id/ListViewRutas"
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@color/foreground"
-                android:foregroundTint="@color/background" />
+                android:layout_height="200dp">
+                <ListView
+                    android:id="@+id/list_routes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/foreground"
+                    android:foregroundTint="@color/background" />
+                <ProgressBar
+                    android:id="@+id/progressRoutes"
+                    android:visibility="gone"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    />
+            </FrameLayout>
+
+
 
             <View
                 android:layout_margin="20dp"
@@ -62,13 +79,14 @@
                 android:layout_marginBottom="10dp"/>
 
             <ListView
-                android:id="@+id/ListViewHoario"
+                android:id="@+id/list_hours"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@color/foreground"
                 android:foregroundTint="@color/background"/>
             <TextView
-                android:id="@+id/HorarioElegido"
+                android:textSize="18sp"
+                android:id="@+id/horarioSelect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/foreground"/>
@@ -80,13 +98,13 @@
                 android:backgroundTint="@color/foreground"/>
 
             <TextView
-                android:id="@+id/Fecha"
+                android:id="@+id/text_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/foreground"/>
             <Button
-                android:visibility="gone"
-                android:id="@+id/GetFecha"
+
+                android:id="@+id/button_Select_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Selecione la Fecha"
@@ -94,7 +112,7 @@
                 android:textColor="@color/background"
                 />
             <TextView
-                android:id="@+id/textCosto"
+                android:id="@+id/text_costo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Costo: $4.00"
@@ -108,7 +126,7 @@
             android:backgroundTint="@color/foreground"/>
 
             <Button
-                android:id="@+id/realizarCompra"
+                android:id="@+id/button_check_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comprar"
