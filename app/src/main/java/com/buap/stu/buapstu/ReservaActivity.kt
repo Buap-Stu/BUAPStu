@@ -91,10 +91,16 @@ class ReservaActivity : AppCompatActivity() {
 
                 lifecycleScope.launch {
                     databaseViewModel.isProcess.collect{
-                        if(it){
-                            buttonCheckOut.visibility = View.GONE
-                            progressCheckOut.visibility = View.VISIBLE
+                        if(currentBoleto.horario.isNotEmpty()){
+                            if(it){
+                                buttonCheckOut.visibility = View.GONE
+                                progressCheckOut.visibility = View.VISIBLE
+                            }else{
+                                buttonCheckOut.visibility = View.VISIBLE
+                                progressCheckOut.visibility = View.GONE
+                            }
                         }
+
                     }
                 }
 
