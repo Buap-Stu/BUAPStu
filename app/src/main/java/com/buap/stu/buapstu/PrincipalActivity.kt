@@ -53,7 +53,7 @@ class PrincipalActivity : AppCompatActivity() {
             authViewModel.signOut()
             showToast("Ha cerrado sesion")
             launchActivity(
-                activity = LoginActivity::class.java,
+                activity = SelectOptionAuthActivity::class.java,
                 clearStack = true,
                 finishActivity = true
             )

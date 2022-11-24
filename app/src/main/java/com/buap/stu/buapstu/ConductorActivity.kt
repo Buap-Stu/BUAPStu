@@ -19,6 +19,13 @@ class ConductorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityConductorBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setOnClickListeners()
+    }
+
+    private fun setOnClickListeners()=with(binding){
+        buttonLogOut.setOnClickListener {
+            authViewModel.signOut()
+        }
     }
 
     override fun onDestroy() {
