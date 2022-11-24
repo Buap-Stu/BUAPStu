@@ -1,5 +1,6 @@
 package com.buap.stu.buapstu.domain.database
 
+import com.buap.stu.buapstu.models.Boleto
 import com.buap.stu.buapstu.models.Horario
 import com.buap.stu.buapstu.models.Ruta
 import com.buap.stu.buapstu.models.User
@@ -11,4 +12,6 @@ interface DatabaseRepository {
     suspend fun addCredits()
     suspend fun getListRouter():List<Ruta>
     suspend fun getListHours(nameRoute: String): List<Horario>
+    suspend fun addNewBoleto(boleto: Boleto)
+    suspend fun transferCredits(matricula: String, creditos: Int)
 }

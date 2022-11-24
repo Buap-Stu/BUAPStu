@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.widget.Toast
 import com.buap.stu.buapstu.LoginActivity
+import com.buap.stu.buapstu.core.states.AuthState
+import com.buap.stu.buapstu.models.Alumno
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,4 +28,13 @@ fun Long.utcToFormat(format: String): String{
     val sdf = SimpleDateFormat(format, Locale.getDefault())
     sdf.timeZone = TimeZone.getTimeZone("UTC")
     return sdf.format(this)
+}
+
+
+fun AuthState.isStudentAuth(function: (Alumno) -> Unit) {
+    (this as? AuthState.Authenticated)?.let { userAuth->
+        (userAuth.user as? Alumno)?.let {
+            function(it)
+        }
+    }
 }

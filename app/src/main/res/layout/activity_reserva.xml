@@ -155,15 +155,25 @@
             android:background="?android:attr/listDivider"
             android:backgroundTint="@color/foreground"/>
 
-        <Button
-            android:id="@+id/button_check_out"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Comprar"
-            android:textColor="@color/background"
-            android:visibility="gone"
-            tools:visibility="visible"
-            />
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button_check_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprar"
+                android:textColor="@color/background"
+                android:visibility="gone"
+                tools:visibility="visible"
+                />
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progressCheckOut"
+                android:layout_gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </FrameLayout>
     </LinearLayout>
 
 

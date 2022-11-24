@@ -71,6 +71,14 @@ class PrincipalActivity : AppCompatActivity() {
             )
         }
 
+        buttonTransferCredits.setOnClickListener {
+            launchActivity(
+                activity = TransferirActivity::class.java,
+                finishActivity = false,
+                clearStack = false
+            )
+        }
+
 
     }
 

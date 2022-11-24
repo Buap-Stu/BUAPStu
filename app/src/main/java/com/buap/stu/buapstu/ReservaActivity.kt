@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.buap.stu.buapstu.core.states.AuthState
 import com.buap.stu.buapstu.core.utils.Resource
+import com.buap.stu.buapstu.core.utils.isStudentAuth
+import com.buap.stu.buapstu.core.utils.showToast
 import com.buap.stu.buapstu.core.utils.utcToFormat
 import com.buap.stu.buapstu.databinding.ActivityReservaBinding
 import com.buap.stu.buapstu.models.Alumno
@@ -23,6 +25,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -46,7 +49,7 @@ class ReservaActivity : AppCompatActivity() {
         _binding = ActivityReservaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createMaterialDialogPicker()
-        initButtonDateClick()
+        initButtonsClicks()
         initFlows()
     }
 
@@ -55,10 +58,8 @@ class ReservaActivity : AppCompatActivity() {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 lifecycleScope.launch {
                     authViewModel.userState.collect { userState ->
-                        (userState as? AuthState.Authenticated)?.let {
-                            (it.user as? Alumno)?.let {
-                                textCreditsAvariable.text = "Creditos: ${it.creditos}"
-                            }
+                        userState.isStudentAuth {
+                            textCreditsAvariable.text = "Creditos: ${it.creditos}"
                         }
                     }
                 }
@@ -88,6 +89,21 @@ class ReservaActivity : AppCompatActivity() {
                     }
                 }
 
+                lifecycleScope.launch {
+                    databaseViewModel.isProcess.collect{
+                        if(it){
+                            buttonCheckOut.visibility = View.GONE
+                            progressCheckOut.visibility = View.VISIBLE
+                        }
+                    }
+                }
+
+                lifecycleScope.launch {
+                    databaseViewModel.messageDatabase.collect{
+                        showToast(it)
+                    }
+                }
+
             }
         }
     }
@@ -106,9 +122,14 @@ class ReservaActivity : AppCompatActivity() {
     }
 
 
-    private fun initButtonDateClick() = with(binding) {
+    private fun initButtonsClicks() = with(binding) {
         buttonSelectDate.setOnClickListener {
             if (!pickerDate.isAdded) pickerDate.show(supportFragmentManager, KEY_DATE_PICKER)
+        }
+        buttonCheckOut.setOnClickListener {
+            databaseViewModel.addNewBoleto(currentBoleto){
+                finish()
+            }
         }
     }
 

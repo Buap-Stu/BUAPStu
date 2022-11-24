@@ -4,9 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.buap.stu.buapstu.core.utils.Resource
 import com.buap.stu.buapstu.domain.database.DatabaseRepository
+import com.buap.stu.buapstu.models.Boleto
 import com.buap.stu.buapstu.models.Horario
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -18,6 +20,11 @@ class DatabaseViewModel @Inject constructor(
     private val database:DatabaseRepository
 ):ViewModel() {
 
+    private val _isProcess= MutableStateFlow(false)
+    val isProcess = _isProcess.asStateFlow()
+
+    private val _messageDatabase= Channel<String>()
+    val messageDatabase =_messageDatabase.receiveAsFlow()
 
     val listRoute= flow {
         emit(Resource.Loading)
@@ -40,6 +47,27 @@ class DatabaseViewModel @Inject constructor(
             listHours.value=Resource.Failure
         }
 
+    }
+
+    fun addNewBoleto(boleto:Boleto,callbackSuccess:()->Unit)=viewModelScope.launch {
+        _isProcess.value=true
+        try {
+            database.addNewBoleto(boleto)
+            callbackSuccess()
+        }catch (e:Exception){
+            e.message?.let { _messageDatabase.trySend(it) }
+        }
+        _isProcess.value=false
+    }
+
+    fun transferCredits(matricula:String,creditos:Int)=viewModelScope.launch {
+        _isProcess.value=true
+        try {
+            database.transferCredits(matricula,creditos)
+        }catch (e:Exception){
+            e.message?.let { _messageDatabase.trySend(it) }
+        }
+        _isProcess.value=false
     }
 
 
