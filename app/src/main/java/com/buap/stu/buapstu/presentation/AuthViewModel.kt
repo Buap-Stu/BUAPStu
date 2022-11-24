@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.buap.stu.buapstu.core.states.AuthState
 import com.buap.stu.buapstu.domain.AuthRepository
 import com.buap.stu.buapstu.domain.database.DatabaseRepository
+import com.buap.stu.buapstu.models.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
@@ -62,6 +63,18 @@ class AuthViewModel @Inject constructor(
 
     fun addCredits() = viewModelScope.launch {
         database.addCredits()
+    }
+
+    fun signUp(newUser: User,callBackSuccess: () -> Unit) = viewModelScope.launch {
+        _isLoading.value=true
+        try {
+            authRepository.signUpUser(newUser)
+            callBackSuccess()
+        }catch (e:Exception) {
+            Timber.d("$e")
+        }
+        _isLoading.value=false
+
     }
 
 }

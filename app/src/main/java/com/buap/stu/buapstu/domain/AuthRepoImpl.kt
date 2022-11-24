@@ -25,4 +25,10 @@ class AuthRepoImpl(
         authDataSource.logOut()
         settingsDataSource.clearData()
     }
+
+    override suspend fun signUpUser(newUser: User) {
+        newUser.uid=authDataSource.signUpUser(newUser)
+        databaseDataSource.addUser(newUser)
+        settingsDataSource.saveUser(newUser)
+    }
 }

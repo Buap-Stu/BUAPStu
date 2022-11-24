@@ -4,9 +4,9 @@ import com.google.firebase.firestore.Exclude
 import java.io.Serializable
 
 data class Conductor(
-    override val uid: String="",
+    override var uid: String="",
     override val telefono: String="",
-    override val estado: Boolean=false,
+    override val estado: Boolean=true,
     override val contrasena: String="",
     override var nombre_completo: String="",
     override val correo: String="",

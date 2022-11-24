@@ -1,7 +1,7 @@
 package com.buap.stu.buapstu.models
 
 abstract class User {
-    abstract val uid:String
+    abstract var uid:String
     abstract val telefono:String
     abstract val contrasena: String
     abstract val estado:Boolean

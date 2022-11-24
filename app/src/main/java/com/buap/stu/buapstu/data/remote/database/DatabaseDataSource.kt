@@ -14,4 +14,5 @@ interface DatabaseDataSource {
     suspend fun getListHours(nameRoute: String): List<Horario>
     suspend fun addNewBoleto(boleto: Boleto):User
     suspend fun transferCredits(matricula: String, creditos: Int): User
+    suspend fun addUser(newUser: User)
 }

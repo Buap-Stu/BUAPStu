@@ -88,4 +88,8 @@ class DatabaseDataSourceImpl:DatabaseDataSource {
     }
 
 
+    override suspend fun addUser(newUser: User) {
+       database.child(NAME_REF_USERS).child(newUser.uid).setValue(newUser).await()
+    }
+
 }

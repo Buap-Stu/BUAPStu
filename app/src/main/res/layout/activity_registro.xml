@@ -26,75 +26,79 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/container_select_buttons"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/mensajeRegistro"
+                        android:id="@+id/text_message_registro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Precione la imagen correspondiente al tipo de usuario que es usted."
                         android:textColor="@color/foreground"
                         android:textSize="20sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/LLImaButtons"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:orientation="horizontal">
-
-
                     <LinearLayout
-                        android:id="@+id/DriverContainer"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/LLImaButtons"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:gravity="top"
+                        android:orientation="horizontal">
 
-                        <ImageButton
-                            android:id="@+id/imageButtonDriver"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:backgroundTint="@color/background"
-                            android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/driver" />
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/DriverContainer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Conductor"
-                            android:textColor="@color/foreground"
-                            android:textSize="20sp" />
-                    </LinearLayout>
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/StudentContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                            <ImageButton
+                                android:id="@+id/imageButtonDriver"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:backgroundTint="@color/background"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/driver"
 
-                        <ImageButton
-                            android:id="@+id/imageButtonStudent"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:backgroundTint="@color/background"
-                            android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/students" />
+                                />
 
-                        <TextView
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Conductor"
+                                android:textColor="@color/foreground"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/StudentContainer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alumno o trabajador BUAP"
-                            android:textAlignment="center"
-                            android:textColor="@color/foreground"
-                            android:textSize="20sp" />
-                    </LinearLayout>
+                            android:gravity="center"
+                            android:orientation="vertical">
 
+                            <ImageButton
+                                android:id="@+id/imageButtonStudent"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:backgroundTint="@color/background"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/students" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alumno o trabajador BUAP"
+                                android:textAlignment="center"
+                                android:textColor="@color/foreground"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -188,15 +192,7 @@
                             android:textColor="@color/background"
                             android:textSize="20sp" />
 
-                        <Button
-                            android:id="@+id/BTNRegistro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/green"
-                            android:onClick="registrarAlumno"
-                            android:text="Registro"
-                            android:textColor="@color/background"
-                            android:textSize="20sp" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -286,15 +282,6 @@
                             android:textColor="@color/background"
                             android:textSize="20sp" />
 
-                        <Button
-                            android:id="@+id/btnRegistro2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/green"
-                            android:onClick="registrarConductor"
-                            android:text="Registrar"
-                            android:textColor="@color/background"
-                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -306,8 +293,25 @@
                         android:layout_marginBottom="50dp"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        >
 
+                        <Button
+                            android:id="@+id/btnRegistro2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/green"
+                            android:onClick="registrarConductor"
+                            android:text="Registrar"
+                            android:textColor="@color/background"
+                            android:textSize="20sp"
+                            android:visibility="gone"
+                            />
+                        <ProgressBar
+                            android:visibility="gone"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/progress_sign_up"
+                            />
 
                     </LinearLayout>
                 </LinearLayout>
