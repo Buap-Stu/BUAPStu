@@ -1,74 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReservaActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:orientation="vertical">
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-366dp">
-
-        <LinearLayout
+        android:padding="30dp"
+        >
+        <TextView
+            android:id="@+id/text_credits_avariable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/green"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/container_select_route"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:textSize="20sp"
-                android:id="@+id/text_credits_avariable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green"
-                android:textAlignment="textEnd"
-                />
-
-            <TextView
-                android:id="@+id/intRuta"
+                android:id="@+id/text_indication_route"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/foreground"
                 android:text="precione sobre su ruta correspondiente"
-                android:layout_marginBottom="10dp"/>
-
-            <TextView
-                android:textSize="18sp"
-                android:id="@+id/RutaElegida"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/foreground"/>
+                android:layout_marginBottom="10dp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
+
                 <ListView
                     android:id="@+id/list_routes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/foreground"
                     android:foregroundTint="@color/background" />
+
                 <ProgressBar
                     android:id="@+id/progressRoutes"
                     android:visibility="gone"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    />
+                    android:layout_gravity="center" />
             </FrameLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_select_route"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/foreground"
+            android:textSize="18sp" />
 
 
-
-            <View
-                android:layout_margin="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
-                android:backgroundTint="@color/foreground"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="20dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="@color/foreground" />
+        <LinearLayout
+            android:id="@+id/container_select_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:visibility="visible"
+            android:visibility="gone"
+            >
 
             <TextView
                 android:id="@+id/intHorario"
@@ -76,62 +85,86 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/foreground"
                 android:text="precione sobre su horario correspondiente"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp" />
 
-            <ListView
-                android:id="@+id/list_hours"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/foreground"
-                android:foregroundTint="@color/background"/>
-            <TextView
-                android:textSize="18sp"
-                android:id="@+id/horarioSelect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/foreground"/>
-            <View
-                android:layout_margin="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
-                android:backgroundTint="@color/foreground"/>
+                android:background="#FFF">
 
-            <TextView
-                android:id="@+id/text_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/foreground"/>
-            <Button
+                <ListView
+                    android:id="@+id/list_hours"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/foreground"
+                    android:foregroundTint="@color/background" />
 
-                android:id="@+id/button_Select_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Selecione la Fecha"
-                android:backgroundTint="@color/green"
-                android:textColor="@color/background"
-                />
-            <TextView
-                android:id="@+id/text_costo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Costo: $4.00"
-                android:textColor="@color/foreground"
-                android:visibility="gone"/>
-            <View
+                <ProgressBar
+                    android:id="@+id/progressHours"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+        <TextView
+            android:textSize="18sp"
+            android:id="@+id/text_hour_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/foreground"/>
+
+        <View
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="@color/foreground" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/foreground" />
+
+        <TextView
+            android:id="@+id/text_costo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Costo: $4.00"
+            android:textColor="@color/foreground"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button_Select_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:text="Selecione la Fecha"
+            android:textColor="@color/background"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+
+        <View
             android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider"
             android:backgroundTint="@color/foreground"/>
 
-            <Button
-                android:id="@+id/button_check_out"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Comprar"
-                android:textColor="@color/background"
-                android:visibility="gone"/>
-        </LinearLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/button_check_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comprar"
+            android:textColor="@color/background"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+    </LinearLayout>
+
+
+</ScrollView>

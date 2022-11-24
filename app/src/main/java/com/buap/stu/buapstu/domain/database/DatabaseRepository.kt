@@ -10,5 +10,5 @@ interface DatabaseRepository {
     suspend fun updateUser(idUser:String,change:Map<String,Any>)
     suspend fun addCredits()
     suspend fun getListRouter():List<Ruta>
-    suspend fun getListHours(): List<Horario>
+    suspend fun getListHours(nameRoute: String): List<Horario>
 }

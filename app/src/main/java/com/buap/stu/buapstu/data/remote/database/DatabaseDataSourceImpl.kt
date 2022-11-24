@@ -46,8 +46,8 @@ class DatabaseDataSourceImpl:DatabaseDataSource {
         return nodeRoute.children.mapNotNull { it.getValue(Ruta::class.java) }
     }
 
-    override suspend fun getListHours(): List<Horario> {
-        val nodeRoute = database.child("Rutas").get().await()
+    override suspend fun getListHours(nameRoute: String): List<Horario> {
+        val nodeRoute = database.child(nameRoute).get().await()
         return nodeRoute.children.mapNotNull { it.getValue(Horario::class.java) }
     }
 

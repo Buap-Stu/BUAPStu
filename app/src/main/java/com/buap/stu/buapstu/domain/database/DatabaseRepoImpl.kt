@@ -28,6 +28,6 @@ class DatabaseRepoImpl(
     override suspend fun getListRouter()=
         databaseDataSource.getListRouter()
 
-    override suspend fun getListHours(): List<Horario> =
-        databaseDataSource.getListHours()
+    override suspend fun getListHours(nameRoute: String): List<Horario> =
+        databaseDataSource.getListHours(nameRoute)
 }
