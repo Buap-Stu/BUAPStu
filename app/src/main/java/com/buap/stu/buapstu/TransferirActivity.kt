@@ -110,7 +110,10 @@ class TransferirActivity : AppCompatActivity() {
             if(matricula.isEmpty() || credits<=0 ){
                 showToast("Verifique sus datos")
             }else{
-                databaseViewModel.transferCredits(matricula, credits,::finish)
+                databaseViewModel.transferCredits(matricula, credits){
+                    finish()
+                    showToast("Tranferencia exitosa")
+                }
             }
         }
         buttonSearchStudent.setOnClickListener {
