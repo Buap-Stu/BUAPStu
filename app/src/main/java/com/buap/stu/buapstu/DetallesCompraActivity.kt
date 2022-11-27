@@ -3,7 +3,9 @@ package com.buap.stu.buapstu
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.buap.stu.buapstu.databinding.ActivityDetallesCompraBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetallesCompraActivity : AppCompatActivity() {
 
     private var _binding:ActivityDetallesCompraBinding?=null

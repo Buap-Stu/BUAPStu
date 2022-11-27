@@ -1,9 +1,6 @@
 package com.buap.stu.buapstu.data.remote.database
 
-import com.buap.stu.buapstu.models.Boleto
-import com.buap.stu.buapstu.models.Horario
-import com.buap.stu.buapstu.models.Ruta
-import com.buap.stu.buapstu.models.User
+import com.buap.stu.buapstu.models.*
 
 interface DatabaseDataSource {
     suspend fun getUser(uuid:String?=null): User
@@ -15,4 +12,5 @@ interface DatabaseDataSource {
     suspend fun addNewBoleto(boleto: Boleto):User
     suspend fun transferCredits(matricula: String, creditos: Int): User
     suspend fun addUser(newUser: User)
+    suspend fun searchStudent(matricula: String): Alumno
 }

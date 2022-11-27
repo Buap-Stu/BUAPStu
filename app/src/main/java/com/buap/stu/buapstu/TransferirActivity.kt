@@ -8,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.buap.stu.buapstu.core.states.AuthState
+import com.buap.stu.buapstu.core.utils.Resource
 import com.buap.stu.buapstu.core.utils.isStudentAuth
 import com.buap.stu.buapstu.core.utils.showToast
 import com.buap.stu.buapstu.databinding.ActivityTransferirBinding
@@ -26,6 +27,8 @@ class TransferirActivity : AppCompatActivity() {
     private val databaseViewModel:DatabaseViewModel by viewModels()
     private val authViewModel: AuthViewModel by viewModels()
 
+    private var myMatricula=""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding= ActivityTransferirBinding.inflate(layoutInflater)
@@ -41,11 +44,11 @@ class TransferirActivity : AppCompatActivity() {
                     databaseViewModel.isProcess.collect{
                         if(it){
                             buttonTransferCredits.visibility=View.GONE
-                            buttonCancel.visibility=View.GONE
+                            buttonCancelTransfer.visibility=View.GONE
                             progressTransfer.visibility=View.VISIBLE
                         }else{
                             buttonTransferCredits.visibility=View.VISIBLE
-                            buttonCancel.visibility=View.VISIBLE
+                            buttonCancelTransfer.visibility=View.VISIBLE
                             progressTransfer.visibility=View.GONE
                         }
                     }
@@ -58,9 +61,34 @@ class TransferirActivity : AppCompatActivity() {
                 }
 
                 launch {
-                    authViewModel.userState.collect {
-                        it.isStudentAuth{
+                    authViewModel.userState.collect { authState ->
+                        authState.isStudentAuth{
                             textRestCredits.text = "Creditos restantes ${it.creditos}"
+                            myMatricula=it.matricula
+                        }
+                    }
+                }
+
+                launch {
+                    databaseViewModel.resultSearch.collect{
+                        when(it){
+                            Resource.Failure -> {
+                                buttonSearchStudent.visibility=View.VISIBLE
+                                progressSearch.visibility=View.GONE
+                                changeErrorMatricula("La matricula no existe")
+                            }
+                            Resource.Loading -> {
+                                buttonSearchStudent.visibility=View.GONE
+                                progressSearch.visibility=View.VISIBLE
+                                changeErrorMatricula()
+                            }
+                            is Resource.Success -> {
+                                containerSearchStudent.visibility=View.GONE
+                                containerTransferStudent.visibility=View.VISIBLE
+                                textMatriculaStudent.text=it.data.matricula
+                                textNameStudent.text=it.data.nombre_completo
+                            }
+                            else -> Unit
                         }
                     }
                 }
@@ -68,8 +96,12 @@ class TransferirActivity : AppCompatActivity() {
         }
     }
 
+    private fun changeErrorMatricula(newError:String=""){
+        binding.textDoNotExist.text=newError
+    }
+
     private fun setOnClickListener()= with(binding){
-            buttonCancel.setOnClickListener{
+            buttonCancelTransfer.setOnClickListener{
                 finish()
             }
         buttonTransferCredits.setOnClickListener{
@@ -78,7 +110,15 @@ class TransferirActivity : AppCompatActivity() {
             if(matricula.isEmpty() || credits<=0 ){
                 showToast("Verifique sus datos")
             }else{
-                databaseViewModel.transferCredits(matricula, credits)
+                databaseViewModel.transferCredits(matricula, credits,::finish)
+            }
+        }
+        buttonSearchStudent.setOnClickListener {
+            val matricula=inputMatricula.text.toString()
+            when{
+                matricula.isEmpty() -> changeErrorMatricula("Matricula no valida")
+                matricula==myMatricula->changeErrorMatricula("No te puedes traferir creditos a ti mismo")
+                else->databaseViewModel.searchStudent(matricula)
             }
         }
     }

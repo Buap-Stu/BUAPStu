@@ -1,12 +1,12 @@
 package com.buap.stu.buapstu
 
-import dagger.hilt.android.AndroidEntryPoint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.buap.stu.buapstu.R
+import androidx.appcompat.app.AppCompatActivity
+import com.buap.stu.buapstu.core.utils.launchActivity
 import com.buap.stu.buapstu.databinding.ActivityConductorBinding
 import com.buap.stu.buapstu.presentation.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ConductorActivity : AppCompatActivity() {
@@ -25,6 +25,11 @@ class ConductorActivity : AppCompatActivity() {
     private fun setOnClickListeners()=with(binding){
         buttonLogOut.setOnClickListener {
             authViewModel.signOut()
+            launchActivity(
+                activity = SelectOptionAuthActivity::class.java,
+                clearStack = true,
+                finishActivity = true
+            )
         }
     }
 

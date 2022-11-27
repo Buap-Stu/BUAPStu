@@ -2,6 +2,7 @@ package com.buap.stu.buapstu.domain.database
 
 import com.buap.stu.buapstu.data.local.settings.SettingsDataSource
 import com.buap.stu.buapstu.data.remote.database.DatabaseDataSource
+import com.buap.stu.buapstu.models.Alumno
 import com.buap.stu.buapstu.models.Boleto
 import com.buap.stu.buapstu.models.Horario
 import com.buap.stu.buapstu.models.User
@@ -54,6 +55,9 @@ class DatabaseRepoImpl(
             throw e
         }
     }
+
+    override suspend fun searchStudent(matricula: String): Alumno =
+        databaseDataSource.searchStudent(matricula)
 
 
 }

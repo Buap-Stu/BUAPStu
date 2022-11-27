@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.buap.stu.buapstu.core.utils.Resource
 import com.buap.stu.buapstu.domain.database.DatabaseRepository
+import com.buap.stu.buapstu.models.Alumno
 import com.buap.stu.buapstu.models.Boleto
 import com.buap.stu.buapstu.models.Horario
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,6 +26,9 @@ class DatabaseViewModel @Inject constructor(
 
     private val _messageDatabase= Channel<String>()
     val messageDatabase =_messageDatabase.receiveAsFlow()
+
+    private val _resultSearch:MutableStateFlow<Resource<Alumno>?> = MutableStateFlow(null)
+    val resultSearch=_resultSearch.asStateFlow()
 
     val listRoute= flow {
         emit(Resource.Loading)
@@ -60,12 +64,27 @@ class DatabaseViewModel @Inject constructor(
         _isProcess.value=false
     }
 
-    fun transferCredits(matricula:String,creditos:Int)=viewModelScope.launch {
+    fun transferCredits(matricula:String,creditos:Int,callBackSuccess:()->Unit)=viewModelScope.launch {
         _isProcess.value=true
         try {
             database.transferCredits(matricula,creditos)
+            callBackSuccess()
         }catch (e:Exception){
             e.message?.let { _messageDatabase.trySend(it) }
+            _resultSearch.value=Resource.Failure
+        }
+        _isProcess.value=false
+    }
+
+    fun searchStudent(matricula: String)=viewModelScope.launch {
+        _isProcess.value=true
+        _resultSearch.value=Resource.Loading
+        try {
+            val student=database.searchStudent(matricula)
+            _resultSearch.value=Resource.Success(student)
+        }catch (e:Exception){
+            e.message?.let { _messageDatabase.trySend(it) }
+            _resultSearch.value=Resource.Failure
         }
         _isProcess.value=false
     }

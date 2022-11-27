@@ -92,4 +92,10 @@ class DatabaseDataSourceImpl:DatabaseDataSource {
        database.child(NAME_REF_USERS).child(newUser.uid).setValue(newUser).await()
     }
 
+    override suspend fun searchStudent(matricula: String): Alumno {
+        val nodeAnotherUser=database.child(NAME_REF_USERS).orderByChild("matricula").equalTo(matricula).limitToFirst(1).get().await()
+        val anotherUser=nodeAnotherUser.children.first()
+        return anotherUser.getValue(Alumno::class.java)!!
+    }
+
 }
