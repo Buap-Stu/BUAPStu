@@ -148,7 +148,6 @@
             android:id="@+id/button_Select_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/green"
             android:text="Selecione la Fecha"
             android:textColor="@color/background"
             android:visibility="gone"
@@ -173,6 +172,7 @@
                 android:textColor="@color/background"
                 android:visibility="gone"
                 tools:visibility="visible"
+                android:backgroundTint="@color/green"
                 />
             <ProgressBar
                 android:visibility="gone"
@@ -181,8 +181,14 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"/>
         </FrameLayout>
-
-
+        <Button
+            android:id="@+id/button_check_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:textColor="@color/background"
+            android:backgroundTint="@color/red"
+            />
     </LinearLayout>
 
 

@@ -59,7 +59,7 @@ class ReservaActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     authViewModel.userState.collect { userState ->
                         userState.isStudentAuth {
-                            textCreditsAvariable.text = "Creditos: ${it.creditos}"
+                            textCreditsAvariable.text = "Créditos: ${it.creditos}"
                         }
                     }
                 }
@@ -136,6 +136,9 @@ class ReservaActivity : AppCompatActivity() {
             databaseViewModel.addNewBoleto(currentBoleto){
                 finish()
             }
+        }
+        buttonCheckCancel.setOnClickListener {
+            finish()
         }
     }
 

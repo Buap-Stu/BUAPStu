@@ -39,6 +39,7 @@ class PrincipalActivity : AppCompatActivity() {
                         (state as? AuthState.Authenticated)?.let { user ->
                             (user.user as? Alumno)?.let { user ->
                                 textCreditsStudents.text = "Créditos: ${user.creditos}"
+                                textNameStudents.text= "${user.nombre_completo}"
                             }
                         }
                     }
