@@ -12,4 +12,5 @@ interface DatabaseRepository {
     suspend fun addNewBoleto(boleto: Boleto)
     suspend fun transferCredits(matricula: String, creditos: Int)
     suspend fun searchStudent(matricula: String): Alumno
+    suspend fun getResponseAuth()
 }

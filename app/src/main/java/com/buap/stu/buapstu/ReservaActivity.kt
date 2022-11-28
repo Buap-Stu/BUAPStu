@@ -154,7 +154,6 @@ class ReservaActivity : AppCompatActivity() {
     private fun listenerSelectDate(time: Long) = with(binding) {
         Timber.d("time ${time.utcToFormat("dd/MM/yyyy")}")
         currentBoleto.fecha = time.utcToFormat("dd/MM/yyyy")
-        currentBoleto.costo = 4
         textDate.text = time.utcToFormat("dd/MM/yyyy")
         textDate.visibility = View.VISIBLE
         textCosto.visibility = View.VISIBLE

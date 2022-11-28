@@ -16,7 +16,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
     private val authRepository: AuthRepository,
     private val database: DatabaseRepository
 ) : ViewModel() {
@@ -39,6 +38,10 @@ class AuthViewModel @Inject constructor(
         SharingStarted.WhileSubscribed(5_000),
         AuthState.Authenticating
     )
+
+    init {
+        updateData()
+    }
 
 
     fun signInWithEmailAndPassword(
@@ -75,6 +78,14 @@ class AuthViewModel @Inject constructor(
         }
         _isLoading.value=false
 
+    }
+
+    private fun updateData()=viewModelScope.launch {
+        try{
+            database.getResponseAuth()
+        }catch(e:Exception){
+            Timber.e("Error al actualizar los datos")
+        }
     }
 
 }

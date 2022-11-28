@@ -4,5 +4,5 @@ data class Boleto(
     var ruta: String="",
     var horario: String="",
     var fecha: String="",
-    var costo: Int=0
+    val costo: Int=4
 )

@@ -59,5 +59,10 @@ class DatabaseRepoImpl(
     override suspend fun searchStudent(matricula: String): Alumno =
         databaseDataSource.searchStudent(matricula)
 
+    override suspend fun getResponseAuth() {
+        val currentUser=databaseDataSource.getUser()
+        settingsDataSource.saveUser(currentUser)
+    }
+
 
 }
