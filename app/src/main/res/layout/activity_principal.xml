@@ -22,33 +22,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:gravity="right|center_vertical"
+                android:gravity="end|center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:id="@+id/text_credits_students"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="@color/background"
                     android:textSize="40sp"
                     android:text="0"
-
                     />
 
                 <ImageButton
                     android:id="@+id/buttons_add_credits"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@color/currentLine"
-                    android:padding="10dp"
+                    android:background="@color/foreground"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/profits" />
+                    android:src="@drawable/completar" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/button_save_travel"
@@ -61,7 +61,13 @@
                     app:iconSize="40dp"
                     app:iconTint="@color/background" />
 
-
+                <Button
+                    android:id="@+id/button_transfer_credits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="30dp"
+                    android:text="Transferir"
+                    android:textColor="@color/background" />
             </LinearLayout>
 
 
@@ -73,24 +79,18 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/button_transfer_credits"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:height="30dp"
-                    android:text="Transferir"
-                    android:textColor="@color/background" />
+
 
                 <Button
                     android:id="@+id/button_log_out"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/red"
-                    android:text="Cerrar Sesion"
+                    android:text="Cerrar Sesión"
                     android:textColor="@color/foreground"
                     app:icon="@drawable/ic_baseline_logout_24"
                     app:iconGravity="textEnd" />
@@ -99,7 +99,4 @@
 
         </LinearLayout>
     </ScrollView>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

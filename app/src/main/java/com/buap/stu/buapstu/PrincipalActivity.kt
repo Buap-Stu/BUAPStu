@@ -38,7 +38,7 @@ class PrincipalActivity : AppCompatActivity() {
                     authViewModel.userState.collect { state ->
                         (state as? AuthState.Authenticated)?.let { user ->
                             (user.user as? Alumno)?.let { user ->
-                                textCreditsStudents.text = "${user.creditos}"
+                                textCreditsStudents.text = "Créditos: ${user.creditos}"
                             }
                         }
                     }
@@ -51,7 +51,7 @@ class PrincipalActivity : AppCompatActivity() {
     private fun initButtons() = with(binding) {
         buttonLogOut.setOnClickListener {
             authViewModel.signOut()
-            showToast("Ha cerrado sesion")
+            showToast("Ha cerrado sesión")
             launchActivity(
                 activity = SelectOptionAuthActivity::class.java,
                 clearStack = true,

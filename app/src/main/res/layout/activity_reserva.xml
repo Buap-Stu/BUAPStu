@@ -33,8 +33,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/foreground"
-                android:text="precione sobre su ruta correspondiente"
-                android:layout_marginBottom="10dp" />
+                android:text="Presione sobre su ruta correspondiente"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -45,7 +46,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/foreground"
-                    android:foregroundTint="@color/background" />
+                    android:foregroundTint="@color/background"
+                    android:textSize="20sp"/>
 
                 <ProgressBar
                     android:id="@+id/progressRoutes"
@@ -61,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/foreground"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
 
         <View
@@ -84,8 +86,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/foreground"
-                android:text="precione sobre su horario correspondiente"
-                android:layout_marginBottom="10dp" />
+                android:text="Presione sobre su horario correspondiente"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -97,7 +101,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/foreground"
-                    android:foregroundTint="@color/background" />
+                    android:foregroundTint="@color/background"
+                    android:textSize="20sp"/>
 
                 <ProgressBar
                     android:id="@+id/progressHours"
@@ -110,11 +115,11 @@
 
         </LinearLayout>
         <TextView
-            android:textSize="18sp"
             android:id="@+id/text_hour_select"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/foreground"/>
+            android:textColor="@color/foreground"
+            android:textSize="20sp"/>
 
         <View
             android:layout_margin="20dp"
@@ -127,7 +132,8 @@
             android:id="@+id/text_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/foreground" />
+            android:textColor="@color/foreground"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/text_costo"
@@ -135,7 +141,8 @@
             android:layout_height="wrap_content"
             android:text="Costo: $4.00"
             android:textColor="@color/foreground"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/button_Select_date"
