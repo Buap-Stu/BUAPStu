@@ -1,6 +1,5 @@
 package com.buap.stu.buapstu
 
-import android.R
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
@@ -28,6 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import com.buap.stu.buapstu.R
 
 @AndroidEntryPoint
 class ReservaActivity : AppCompatActivity() {
@@ -117,7 +117,7 @@ class ReservaActivity : AppCompatActivity() {
     private fun createListHours(listHoursRoutes: List<Horario>) = with(binding) {
         val listHoursShow =
             listHoursRoutes.map { "Hora de Salida: " + it.horaSalida + ", Hora de llegada: " + it.horaAproxLlegada }
-        val adapter = ArrayAdapter(this@ReservaActivity, R.layout.simple_list_item_1, listHoursShow)
+        val adapter = ArrayAdapter(this@ReservaActivity, android.R.layout.simple_list_item_1, listHoursShow)
         listHours.adapter = adapter
         listHours.setOnItemClickListener { parent, view, position, id ->
             textHourSelect.text = listHoursShow[position]
@@ -141,7 +141,8 @@ class ReservaActivity : AppCompatActivity() {
 
     private fun createMaterialDialogPicker() {
         if (!this::pickerDate.isInitialized) {
-            this.pickerDate = MaterialDatePicker.Builder.datePicker().setTitleText("Select date")
+            this.pickerDate = MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select date")
                 .setCalendarConstraints(
                     CalendarConstraints.Builder()
                         .setValidator(DateValidatorPointForward.now()).build()
@@ -164,7 +165,7 @@ class ReservaActivity : AppCompatActivity() {
     private fun createListRoutes(listRoute: List<Ruta>) = with(binding) {
         val listTextShow = listRoute.map { ruta -> ruta.punto_inicial + " - " + ruta.punto_final }
         listRoutes.adapter =
-            ArrayAdapter(this@ReservaActivity, R.layout.simple_list_item_1, listTextShow)
+            ArrayAdapter(this@ReservaActivity, android.R.layout.simple_list_item_1, listTextShow)
         listRoutes.setOnItemClickListener { _, _, position, _ ->
 
             currentBoleto.horario = listTextShow[position]

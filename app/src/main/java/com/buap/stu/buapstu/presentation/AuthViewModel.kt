@@ -84,7 +84,7 @@ class AuthViewModel @Inject constructor(
         try{
             database.getResponseAuth()
         }catch(e:Exception){
-            Timber.e("Error al actualizar los datos")
+            Timber.e("Error al actualizar los datos $e")
         }
     }
 

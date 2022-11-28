@@ -3,6 +3,7 @@ package com.buap.stu.buapstu
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -22,10 +23,14 @@ class SelectOptionAuthActivity : AppCompatActivity() {
     private var _binding: ActivitySelectOptionAuthBinding? = null
     private val binding: ActivitySelectOptionAuthBinding get() = _binding!!
     private val authViewModel: AuthViewModel by viewModels()
+    private var isSplash:Boolean=true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen().apply {
+            setKeepOnScreenCondition{isSplash}
+        }
         _binding = ActivitySelectOptionAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initButtons()
@@ -79,6 +84,7 @@ class SelectOptionAuthActivity : AppCompatActivity() {
                                     }
                                     else -> Timber.d("Error type")
                                 }
+                                isSplash=true
                             }
                             else -> Unit
                         }
