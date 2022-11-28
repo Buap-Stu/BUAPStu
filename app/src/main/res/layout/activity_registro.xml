@@ -35,7 +35,7 @@
                         android:id="@+id/text_message_registro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Precione la imagen correspondiente al tipo de usuario que es usted."
+                        android:text="Presione la imagen correspondiente al tipo de usuario que es usted."
                         android:textColor="@color/foreground"
                         android:textSize="20sp" />
                     <LinearLayout
@@ -138,7 +138,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Matricula."
+                            android:text="Matrícula."
                             android:textColor="@color/foreground"
                             android:textSize="20sp" />
 
@@ -149,7 +149,7 @@
                             android:layout_marginTop="10dp"
                             android:background="@color/foreground"
                             android:ems="10"
-                            android:hint="Matricula"
+                            android:hint="Matrícula"
                             android:inputType="number"
                             android:textColor="@color/background"
                             android:textSize="20sp" />
