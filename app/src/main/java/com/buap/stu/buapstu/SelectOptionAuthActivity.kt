@@ -84,10 +84,10 @@ class SelectOptionAuthActivity : AppCompatActivity() {
                                     }
                                     else -> Timber.d("Error type")
                                 }
-                                isSplash=true
                             }
                             else -> Unit
                         }
+                        if(state !is AuthState.Authenticating)  isSplash=false
                     }
                 }
             }
